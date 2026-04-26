@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { blogPosts, formatDate, getBlogPost } from "../../lib/blog";
+import { MarkdownRenderer } from "@/app/components/MarkdownRenderer";
 import BlogCTA from "./BlogCTA";
 
 type Params = Promise<{ slug: string }>;
@@ -81,20 +82,9 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         </div>
       </header>
 
-      <div className="mt-10 space-y-8">
-        {post.content.map((section, i) => (
-          <section key={i}>
-            {section.heading && (
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-3">
-                {section.heading}
-              </h2>
-            )}
-            <p className="text-base md:text-lg text-zinc-300 leading-relaxed">
-              {section.body}
-            </p>
-          </section>
-        ))}
-      </div>
+      <div className="mt-10">
+  <MarkdownRenderer content={post.content} />
+</div>
 
       <BlogCTA slug={post.slug} />
 
