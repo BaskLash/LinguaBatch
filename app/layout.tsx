@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -83,6 +84,7 @@ export default function RootLayout({
         <AnalyticsProvider />
         <WebVitalsReporter />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        <Analytics />
       </body>
     </html>
   );
