@@ -11,6 +11,989 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+      slug: "2026-04-expanding-pdf-conversion-powerpoint-excel-support",
+  title: "From PDF Success to Expansion: Adding PowerPoint and Excel Support",
+  description:
+    "After successfully stabilizing PDF conversion via DeepL, users immediately asked for more. Here’s how we rapidly extended the system to support PowerPoint and Excel files.",
+  date: "2026-04-25",
+  readTime: "5 min read",
+  category: "Product",
+  author: "LinguaBatch Team",
+  content: `Once a system works reliably, the next step is obvious:
+**expand it.**
+
+After stabilizing PDF conversion through DeepL, we quickly received user feedback:
+
+> “Can you also support PowerPoint and Excel files?”
+
+And just like that, the next phase began.
+
+## From stability to expansion
+
+The PDF workflow was finally working reliably.
+
+That meant one thing:
+we had a solid foundation to build on.
+
+Instead of reinventing the system, we focused on extending it.
+
+Because when the architecture is right, scaling becomes much faster.
+
+## Thinking in systems, not features
+
+We started treating the product like a structure:
+
+- PDF support = the foundation  
+- Additional file types = new rooms added to the house  
+- Optimizations = improvements to doors, windows, and layout  
+
+Once the base is strong, everything else becomes modular.
+
+This mindset allowed us to move faster without breaking stability.
+
+## Why PowerPoint and Excel came next
+
+PowerPoint and Excel files are some of the most commonly used document formats in real workflows.
+
+Supporting them meant:
+- More real-world use cases  
+- Broader applicability  
+- A more complete translation pipeline  
+
+But the key challenge was clear:
+**how do we reliably extract text from these formats?**
+
+## Fast execution thanks to a proven architecture
+
+Because the PDF system was already stable, we didn’t need to start from scratch.
+
+Instead, we:
+- Reused the existing processing structure  
+- Adjusted extraction logic for new file formats  
+- Validated each step before scaling further  
+
+This reduced complexity significantly.
+
+What could have taken weeks was reduced to a focused implementation cycle.
+
+## Early results: immediate validation
+
+After the first implementation pass, early tests already showed strong results.
+
+The system handled PowerPoint and Excel inputs cleanly, confirming that the architecture could support expansion without major redesigns.
+
+That was an important milestone:
+**the foundation was strong enough to grow.**
+
+## Building like a scalable system
+
+We now approach development like building a modular structure:
+
+- Build a stable core  
+- Extend carefully around it  
+- Avoid unnecessary rewrites  
+- Test continuously as we scale  
+
+This ensures that every new feature strengthens the system instead of destabilizing it.
+
+## Speed through clarity
+
+One of the biggest advantages in this phase was clarity.
+
+Because we already knew:
+- how documents are processed  
+- how DeepL integration behaves  
+- where previous failures occurred  
+
+We could move quickly without uncertainty slowing us down.
+
+## Staying adaptable as we grow
+
+As we continue expanding support for new file types, flexibility becomes essential.
+
+We’re designing the system to:
+- adapt quickly to new formats  
+- integrate changes without breaking stability  
+- evolve with user needs  
+
+Because real-world workflows don’t stay static.
+
+## What this means going forward
+
+PDF support was just the beginning.
+
+Now we’re moving toward a broader vision:
+a unified system that handles multiple document types with the same reliability and speed.
+
+## The takeaway
+
+Once the foundation is solid, expansion becomes momentum — not effort.
+
+## Try a workflow built to scale
+
+If you’re working with multiple file types and tired of switching tools, the goal is simple:
+
+One system. Many formats. No friction.
+
+Experience a workflow that grows with your needs — not against them.`
+},
+  {
+      slug: "2026-04-pdf-deepl-character-limit-popup-workflow",
+  title: "Solving DeepL Character Limits: Why We Moved PDF Processing Back to the Popup",
+  description:
+    "When handling large PDF translations, internal workflows broke under character limits. Here’s how we redesigned the process to ensure stability, reliability, and uninterrupted DeepL processing.",
+  date: "2026-04-23",
+  readTime: "6 min read",
+  category: "Engineering",
+  author: "LinguaBatch Team",
+  content: `Working with large PDF translations is rarely just about extraction or formatting.
+
+Sometimes, the real challenge lies in how the process is triggered and sustained.
+
+Recently, we ran into a limitation that forced us to rethink our entire workflow design.
+
+## The goal: seamless PDF processing with readable outputs
+
+One of our improvements involved formatting extracted data — including dates — directly in the main interface.
+
+The idea was simple:
+- Upload a PDF  
+- Extract content  
+- Process it via DeepL  
+- Display results in a clean, readable format  
+
+Including properly formatted dates so users don’t have to interpret raw or technical output.
+
+Everything should feel immediate and understandable.
+
+## A structural change in workflow execution
+
+To improve control, we initially moved the conversion process away from the internal extension page and triggered it directly through the popup.
+
+On paper, this seemed more stable and direct.
+
+In practice, it revealed a serious limitation.
+
+## The 15,000 character problem
+
+Once the input exceeded roughly 15,000 characters, the process began to fail.
+
+It would simply stop continuing.
+
+Even after internal optimizations, we could not reliably reach the expected scale of ~120,000 characters in testing — a requirement raised by real usage scenarios.
+
+This made one thing clear:
+**the current execution model was not stable enough for large-scale processing.**
+
+## Why internal execution was breaking down
+
+The issue wasn’t just performance.
+
+It was reliability.
+
+When processing was handled inside the extension’s internal page:
+- Connections could be interrupted  
+- State could become inconsistent  
+- DeepL communication could break mid-process  
+
+And once that happens, large translations become unreliable by design.
+
+## Rethinking where the process should live
+
+To guarantee stability, we had to reconsider something fundamental:
+
+Where should the process actually start and run from?
+
+After analysis, the conclusion became clear:
+
+The safest and most stable trigger point is the popup itself.
+
+## Why the popup is more reliable
+
+By starting and controlling the process directly from the popup:
+- The lifecycle becomes simpler  
+- The connection stays consistent  
+- There is less risk of internal interruption  
+- DeepL communication remains stable  
+
+In short:
+**fewer moving parts means fewer failure points.**
+
+And for large-scale document processing, that matters more than anything else.
+
+## Stability over convenience
+
+At first, moving everything into an internal page felt more flexible.
+
+But flexibility is useless if the system breaks under load.
+
+So we prioritized:
+- Stability  
+- Predictability  
+- Consistent execution  
+
+Even if that meant rethinking the architecture again.
+
+## Understanding real-world limits
+
+This experience also highlighted an important constraint:
+
+DeepL itself introduces practical limits depending on usage patterns and context.
+
+Even if our system improves, external boundaries still exist — and must be accounted for in the design.
+
+## A clearer direction forward
+
+With this change, we now have:
+- A more stable process trigger  
+- Better handling of large inputs  
+- Reduced risk of mid-process failures  
+
+And a clearer understanding of where complexity belongs — and where it doesn’t.
+
+## The takeaway
+
+When systems scale, small architectural decisions become critical.
+
+Where a process starts is just as important as what it does.
+
+## Building for reliability first
+
+This update reinforces a core principle we follow:
+
+**A workflow is only as strong as its weakest connection.**
+
+And in this case, simplifying the execution path made the entire system stronger.
+
+## Try a more stable workflow
+
+If you’ve ever experienced interruptions during large file processing or translation tasks, you know how frustrating it can be.
+
+Try a system designed for stability from the ground up — and see how much smoother large-scale workflows can become when nothing breaks halfway through.`
+},
+  {
+      slug: "2026-04-understanding-why-users-uninstall-extension",
+  title: "Why Users Uninstall Extensions (And Why We Finally Started Asking)",
+  description:
+    "You can’t improve what you don’t understand. Here’s how adding a simple uninstall feedback form helped us uncover real user frustrations in a single day.",
+  date: "2026-04-21",
+  readTime: "5 min read",
+  category: "Product",
+  author: "LinguaBatch Team",
+  content: `One of the most important questions in product development is also one of the most ignored:
+
+**Why do users uninstall your app?**
+
+If you don’t ask, you simply don’t know.
+
+And if you don’t know, you can’t improve.
+
+## The blind spot most products have
+
+It’s easy to track installs, usage, and engagement.
+
+But uninstalls? They often happen silently.
+
+No warning. No explanation. No feedback.
+
+Just a disappearing user — and a missed opportunity to learn.
+
+That’s exactly the gap we wanted to close.
+
+## Introducing the uninstall feedback form
+
+Instead of guessing, we added something simple:
+a short uninstall form that appears when a user removes our extension.
+
+The goal wasn’t to overwhelm users.
+
+It was to ask just enough:
+- Why are you leaving?  
+- What didn’t work?  
+- What could we improve?  
+
+Short, direct, and easy to answer.
+
+No friction. No unnecessary steps.
+
+## Why simplicity matters in feedback
+
+If a feedback form is too long, users won’t complete it.
+
+If it’s too complex, they’ll ignore it.
+
+So we focused on one principle:
+**maximum insight, minimum effort.**
+
+That’s why the form is:
+- Very short  
+- Highly focused  
+- Easy to complete in seconds  
+
+## The first results arrived immediately
+
+The impact was almost instant.
+
+On the very same day after launching the form, we received our first response.
+
+Not only did we learn why the user uninstalled the extension — we also received their email address and direct feedback permission.
+
+That turned a lost user into a potential improvement loop.
+
+## Turning uninstall into insight
+
+Most products treat uninstalls as the end of the journey.
+
+We see them differently:
+**they are a source of truth.**
+
+Every uninstall is a signal:
+- Something didn’t meet expectations  
+- Something was unclear  
+- Something can be improved  
+
+And now, we finally have a way to capture that signal.
+
+## Why this matters for growth
+
+If you don’t understand why users leave, you can’t reduce churn.
+
+You can only guess.
+
+But guessing doesn’t scale.
+
+Real improvement comes from real feedback — especially from users who decided the product wasn’t right for them.
+
+## Honest feedback drives real progress
+
+One uncomfortable truth became clear:
+
+If you don’t actively ask users why they leave, you’ll never fully understand your product’s weaknesses.
+
+And without that understanding, growth becomes random instead of intentional.
+
+## A small feature with a big impact
+
+The uninstall form is simple.
+
+But its impact is huge:
+- Direct user insights  
+- Faster iteration cycles  
+- Clearer product direction  
+
+Sometimes the smallest tools reveal the most important truths.
+
+## Growth starts with listening
+
+You can’t improve what you don’t see.
+
+And you can’t see what you don’t ask about.
+
+That’s why we now treat uninstall feedback as a core part of our product loop — not an afterthought.
+
+## Try building with feedback in mind
+
+If you’re serious about improving your product, start asking the hard questions — even at the end of the user journey.
+
+Because that’s often where the most honest answers are.`
+},
+  {
+      slug: "2026-04-rethinking-pdf-upload-workflow",
+  title: "Rethinking PDF Uploads: Why a Simpler Approach Wins",
+  description:
+    "After multiple failed attempts, we redesigned our PDF upload workflow from the ground up. Here’s how focusing on simplicity and step-by-step execution led to real progress.",
+  date: "2026-04-20",
+  readTime: "6 min read",
+  category: "Workflow",
+  author: "LinguaBatch Team",
+  content: `Sometimes progress doesn’t come from adding more — but from starting over with a better approach.
+
+After struggling with unreliable PDF uploads, we made a fundamental change:
+we stopped trying to handle everything inside the extension popup.
+
+## The problem with popup-based uploads
+
+At first, uploading PDFs directly through the popup seemed convenient.
+
+But in practice, it created instability:
+- Uploads could fail unexpectedly  
+- Complex files caused inconsistent behavior  
+- The environment was too limited for reliable processing  
+
+The result? A fragile experience that couldn’t scale.
+
+## A new approach: dedicated upload interface
+
+So we changed direction.
+
+Instead of forcing everything into the popup, we introduced a **separate upload page داخل the extension** — designed specifically for handling files.
+
+This gave us:
+- More control over the upload process  
+- Greater stability and reliability  
+- A foundation that can scale with future features  
+
+The goal was clear:
+**make uploads work flawlessly — first.**
+
+## Step one: make it reliable
+
+We deliberately slowed down our approach.
+
+Instead of solving everything at once, we focused on one question:
+**Does the upload work perfectly?**
+
+Only when the answer is yes do we move forward.
+
+This shift — from “build everything” to “build one thing right” — changed everything.
+
+## Focusing on text extraction
+
+Once uploads became stable, the next challenge emerged:
+extracting usable text from PDFs.
+
+We concentrated on the most common and reliable methods, assuming text-based PDFs as a starting point.
+
+No edge cases. No over-engineering.
+
+Just a clear, focused solution.
+
+## Building for future scale
+
+Even at this early stage, we’re thinking ahead.
+
+A robust upload system isn’t just about PDFs — it’s the foundation for:
+- Additional file formats  
+- More complex processing  
+- Scalable workflows  
+
+But none of that matters if the core isn’t solid.
+
+That’s why everything depends on getting this step right.
+
+## Proof through simplicity
+
+The result?
+
+The upload system now works reliably — at least for PDFs.
+
+And that’s exactly what we wanted.
+
+Not a half-working system with many features, but a **fully working system with a clear purpose**.
+
+## What comes next
+
+With uploads and extraction in place, the next step is integration:
+connecting everything smoothly with DeepL.
+
+And this time, we’re applying the same principle:
+- Keep it simple  
+- Build step by step  
+- Validate before expanding  
+
+Which makes the next phase significantly easier.
+
+## The lesson
+
+Trying to solve everything at once leads to failure.
+
+Focusing on one thing — and doing it right — leads to progress.
+
+## A better workflow is built step by step
+
+We’re not chasing complexity anymore.
+
+We’re building a workflow that:
+- Works reliably  
+- Scales naturally  
+- Feels simple to use  
+
+Because in the end, simplicity isn’t a limitation — it’s a competitive advantage.
+
+## Try a more reliable way to work
+
+If you’ve ever struggled with unstable uploads or overly complex tools, you know how frustrating it can be.
+
+Try a workflow designed for stability, clarity, and speed — and experience how much easier things become when everything just works as expected.`
+},
+  {
+      slug: "2026-04-automating-translation-workflows-speed",
+  title: "From Manual Steps to Instant Results: Automating Translation Workflows",
+  description:
+    "Automation is the key to faster workflows. Discover how eliminating manual steps, pre-fetching content, and optimizing text handling can dramatically increase productivity.",
+  date: "2026-04-16",
+  readTime: "6 min read",
+  category: "Productivity",
+  author: "LinguaBatch Team",
+  content: `Speed isn’t just about faster processing.
+
+It’s about removing every unnecessary step between input and result.
+
+That’s exactly what we’re focused on: automating every part of the workflow so users can move from idea to output as quickly as possible.
+
+## Why manual steps are the real bottleneck
+
+Most delays don’t come from translation itself.
+
+They come from everything around it:
+- Copying text  
+- Reusing previous results  
+- Cleaning formatting  
+- Moving content between steps  
+
+Each of these actions takes time. And worse, they interrupt flow.
+
+Individually, they seem small. Together, they define how slow or fast your workflow really is.
+
+## Automation as a core principle
+
+Our goal is simple:
+**remove the need for manual interaction wherever possible.**
+
+That means:
+- Detecting relevant content automatically  
+- Pre-fetching data before you even need it  
+- Integrating past results into current workflows  
+
+Instead of reacting, the system prepares everything in advance.
+
+## Reusing what already exists
+
+One of the biggest inefficiencies in translation workflows is repetition.
+
+You’ve already translated or optimized similar text — but you still have to copy and reuse it manually.
+
+We eliminate that.
+
+By intelligently accessing previous translations, the system can:
+- Suggest or insert relevant content  
+- Replace or swap text automatically  
+- Keep your workflow consistent  
+
+No searching. No copying. No wasted time.
+
+## Faster workflows through pre-fetching
+
+Speed isn’t just about execution — it’s about preparation.
+
+By pre-loading relevant data and anticipating user actions, the workflow feels instant.
+
+You don’t wait for the system.
+The system is already ready for you.
+
+## Cleaner text, better results
+
+Formatting issues can slow everything down.
+
+Extra spaces, inconsistent structure, or messy input all affect the final output.
+
+That’s why we automatically:
+- Clean unnecessary whitespace  
+- Normalize text structure  
+- Prepare content for optimal processing  
+
+The result is not just faster workflows — but also better, more consistent outputs.
+
+## Scaling beyond manual limits
+
+Manual workflows don’t scale.
+
+Automation does.
+
+By removing repetitive tasks and optimizing every micro-step, we unlock a level of speed and efficiency that simply isn’t possible with traditional approaches.
+
+This is how workflows evolve:
+from manual → assisted → automated.
+
+## Built for continuous improvement
+
+Every small optimization matters.
+
+We continuously refine:
+- Detection  
+- Pre-fetching  
+- Text handling  
+- Workflow integration  
+
+Because real performance gains come from improving the details — again and again.
+
+## The future of translation workflows
+
+The direction is clear:
+
+Less manual work.
+More automation.
+Faster results.
+
+A workflow where everything just happens — without you having to think about it.
+
+## Experience true speed
+
+If your current workflow still relies on copying, pasting, and manual adjustments, you’re leaving a lot of time on the table.
+
+Try a system that automates the process end-to-end — and see how fast your work can really become when nothing slows you down anymore.`
+},
+  {
+      slug: "2026-04-fixing-word-export-docx-bug",
+  title: "When Word Files Don’t Open: Fixing Our .docx Export the Right Way",
+  description:
+    "Our Word export feature worked — until it didn’t. Here’s how we identified a critical .docx issue, rebuilt the export system from scratch, and delivered a reliable solution.",
+  date: "2026-04-08",
+  readTime: "7 min read",
+  category: "Workflow",
+  author: "LinguaBatch Team",
+  content: `Sometimes, the most important improvements start with something breaking.
+
+Shortly after releasing our multi-export feature, we received feedback from our very first user:
+the Word export worked — but the file wouldn’t open.
+
+## When “download successful” isn’t enough
+
+At first glance, everything seemed fine.
+
+You could export translations as a Word file.
+The download completed without errors.
+The file looked correct.
+
+But when opening it in Microsoft Word, it failed.
+
+No preview. No content. Just an error.
+
+When we tested it ourselves on Windows, we saw the same issue. Even single exports didn’t work.
+
+The conclusion was clear:
+**the export wasn’t actually working — it just looked like it was.**
+
+## The root cause (in simple terms)
+
+The issue came down to how the file was generated.
+
+We were creating a \`.docx\` file — but not a real one.
+
+Instead, the system exported an HTML document with some Microsoft-specific tags and simply renamed it as \`.docx\`.
+
+That led to inconsistent behavior:
+- LibreOffice opened the file (it detected HTML and adapted)
+- Microsoft Word rejected it (it expects a strict file format)
+
+Why?
+
+Because a real \`.docx\` file is not just text — it’s a structured ZIP archive containing XML files.
+
+Our version didn’t meet that requirement.
+
+## Why Word rejected the file
+
+Microsoft Word follows strict validation rules.
+
+When opening a \`.docx\` file, it expects:
+- A valid ZIP structure  
+- Specific XML files inside  
+- A defined document schema (OOXML)  
+
+Our file started with HTML instead of a ZIP signature.
+
+So Word did exactly what it should:
+it refused to open it.
+
+## The solution: build it properly
+
+Instead of relying on shortcuts, we decided to fix the problem at its core.
+
+We rebuilt the entire Word export system — from scratch.
+
+The goal:
+**generate real \`.docx\` files, fully compliant with the official format.**
+
+## A lightweight but powerful fix
+
+We implemented a custom solution in pure JavaScript:
+- No external libraries  
+- No unnecessary dependencies  
+- Fully browser-based  
+
+The new system:
+- Generates valid XML content  
+- Wraps it inside a proper ZIP structure  
+- Follows the official OOXML standard  
+
+This ensures full compatibility with Microsoft Word.
+
+## What changed for users
+
+With the new implementation:
+- Exported Word files open instantly in Word  
+- No errors, no warnings  
+- Clean, structured documents  
+- Reliable multi-export support  
+
+For bulk exports, each translation is clearly structured and easy to work with — ready to paste, edit, or share.
+
+## Turning a bug into a breakthrough
+
+This wasn’t just a fix.
+
+It was a turning point.
+
+We moved from a “quick workaround” to a **robust, production-ready solution** — one that works across systems and meets real-world expectations.
+
+## Why details matter
+
+This experience highlights something important:
+
+Small technical shortcuts can create big usability problems.
+
+Users don’t care how a feature is implemented — they care that it works.
+
+And when it doesn’t, trust is lost.
+
+That’s why we focus on getting the details right.
+
+## Building tools you can rely on
+
+Every issue we encounter helps us improve.
+
+We don’t just patch problems — we solve them properly.
+
+Because a fast workflow only matters if it’s also reliable.
+
+## Try a workflow that works end-to-end
+
+If you’ve ever struggled with broken exports, incompatible files, or unreliable tools, you know how frustrating it can be.
+
+Try a system where everything — from input to export — works seamlessly, so you can focus on your work instead of fixing your tools.`
+},
+  {
+      slug: "2026-04-user-feedback-multi-export-feature",
+  title: "From First User Request to Same-Day Feature: Multi-Export Arrives",
+  description:
+    "A single piece of user feedback led to a powerful new feature. Here’s how multi-select export transformed translation workflows — and why speed of execution matters.",
+  date: "2026-04-07",
+  readTime: "5 min read",
+  category: "Productivity",
+  author: "LinguaBatch Team",
+  content: `Every great product evolves through real user feedback.
+
+For us, it started with a simple but powerful question:
+**“Which feature do you miss most?”**
+
+The answer was clear — and immediately actionable.
+
+## The problem: one-by-one workflows
+
+Until now, working with translation history had a limitation:
+you could only select and copy one result at a time.
+
+At first, this might seem manageable. But as soon as users worked with larger volumes, the friction became obvious:
+- Too many entries to handle individually  
+- Repetitive copying and exporting  
+- Slower workflows when assembling documents  
+
+What should have been a smooth process turned into unnecessary manual effort.
+
+## The request that changed everything
+
+The user’s need was straightforward:
+
+> “It should be possible to select multiple translations from the history and export or copy them together.”
+
+This wasn’t just a feature request — it was a workflow improvement.
+
+Especially for users handling many text blocks, chapters, or converted segments, this change would remove a major bottleneck.
+
+## The solution: multi-select and export
+
+We acted immediately.
+
+The new feature allows users to:
+- Select multiple translations directly from the history  
+- Copy or export them in one action  
+- Work more efficiently with large sets of processed text  
+
+No more repetitive steps. No more unnecessary delays.
+
+## Going beyond the initial request
+
+While implementing multi-select, another improvement became obvious:
+
+Users don’t just want to manage single entries — they want full control.
+
+That’s why we expanded the feature to include:
+- Deleting multiple entries at once  
+- Clearing entire groups (“palettes”)  
+- Managing history more flexibly  
+
+Because efficiency isn’t just about speed — it’s about control.
+
+## Speed as a product philosophy
+
+What made this moment special wasn’t just the feature itself.
+
+It was how fast it happened.
+
+We received the request, implemented the solution, and submitted it for review — all on the same day.
+
+This reflects a core principle:
+**speed creates impact.**
+
+The faster improvements reach users, the faster workflows improve.
+
+## Building with users, not just for them
+
+This was more than just a feature update.
+
+It marked the beginning of a new mindset:
+- Listen closely  
+- Act immediately  
+- Deliver real value  
+
+Because the best ideas don’t always come from planning — they come from real usage.
+
+## Small feature, big impact
+
+Multi-export might seem like a small addition.
+
+But in practice, it transforms how users interact with their work:
+- Less repetition  
+- Faster document assembly  
+- Smoother workflows  
+
+And that’s exactly what great tools should do.
+
+## What’s next
+
+This is just the beginning.
+
+We’ll continue to move fast, listen to feedback, and refine the experience — step by step.
+
+Because every improvement, no matter how small, brings us closer to a workflow that feels effortless.
+
+## Try it yourself
+
+If you’re still handling translations one by one, it’s time for an upgrade.
+
+Experience a faster, more flexible workflow — and see how much time you save when your tools finally keep up with you.`
+},
+  
+  {
+      slug: "2026-03-complex-document-upload-lessons",
+  title: "Uploading Complex Documents: Why We Failed Twice (And Got Closer)",
+  description:
+    "Building reliable document upload and translation workflows is harder than it looks. Here’s what we learned from failing twice — and why progress still matters.",
+  date: "2026-03-31",
+  readTime: "6 min read",
+  category: "Workflow",
+  author: "LinguaBatch Team",
+  content: `Building features that handle complex documents sounds straightforward — until you actually try to make them work reliably.
+
+We’ve now attempted it more than once. And while we’ve made progress, we’ve also failed again.
+
+But this time, the failure looked very different.
+
+## When “working” isn’t actually working
+
+On the surface, things seemed promising.
+
+We managed to upload documents.
+We successfully converted the content.
+We even applied AI-first approaches to improve processing.
+
+Technically, parts of the system worked.
+
+But the overall experience didn’t.
+
+The system was unstable. Outputs were inconsistent. And the internal logic — especially how everything connected — wasn’t fully reliable yet.
+
+In short: it worked… but not in a way anyone could depend on.
+
+## The limits of shifting complexity to AI
+
+This time, we tried a different approach.
+
+Instead of handling all contextual logic manually, we pushed more responsibility into the AI layer — hoping it would simplify the system and improve results.
+
+This idea wasn’t random. A previous attempt using a different AI had shown some success, even with less access to our codebase.
+
+But reality was more complicated.
+
+While AI helped in some areas, it didn’t fully solve the underlying structural issues. The system still lacked clarity and stability in how everything worked together.
+
+## Progress hidden inside failure
+
+Despite the issues, this attempt wasn’t a step backward.
+
+In fact, we solved one major problem:
+**document conversion.**
+
+That part finally worked.
+
+Which means the bottleneck shifted.
+
+Now, the real challenge became clear:
+**reliably transferring processed content into DeepL.**
+
+And identifying the real problem is a huge step forward.
+
+## Why facing complexity early matters
+
+When building something new, especially something complex, you can’t avoid difficult phases.
+
+You have to confront messy, unclear situations head-on.
+
+At first, everything feels unstable. Nothing behaves predictably. But over time — through observation, iteration, and refinement — patterns begin to emerge.
+
+What feels chaotic at the beginning becomes manageable later.
+
+But only if you keep working on it.
+
+## Letting go of what doesn’t work
+
+One of the most important lessons in this process is knowing what to stop doing.
+
+Every failed attempt reveals something:
+- What adds unnecessary complexity
+- What doesn’t scale
+- What creates instability
+
+Progress isn’t just about adding new ideas — it’s about removing the wrong ones.
+
+## Getting closer to a reliable workflow
+
+Compared to our first attempt, this version brought us closer:
+- Uploading works
+- Conversion works
+- The system structure is clearer
+
+What remains is refinement — especially in how processed data flows into translation tools like DeepL.
+
+And that’s a much more focused problem to solve.
+
+## Building step by step
+
+Complex workflows can’t be perfected in a single attempt.
+
+They evolve.
+
+Each iteration reduces uncertainty, improves stability, and sharpens the focus on what really matters.
+
+That’s how reliable systems are built — not through perfection, but through persistence.
+
+## The takeaway
+
+Failure doesn’t always mean starting over.
+
+Sometimes, it means you’ve finally uncovered the real problem.
+
+And once you know that, you’re closer than ever to solving it.
+
+## Follow the progress
+
+If you’re interested in how modern document workflows evolve — from messy beginnings to reliable systems — you’re seeing it happen in real time.
+
+Try a tool that’s built through iteration, learning, and constant improvement — and experience how workflows get better with every step forward.`
+},
+  
+  {
     slug: "why-manual-document-translation-is-slowing-down-businesses",
     title: "Why Manual Document Translation Is Slowing Down Businesses",
     description:
