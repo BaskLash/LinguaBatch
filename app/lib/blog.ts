@@ -11,6 +11,137 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+      slug: "2026-05-extension-growth-user-demand",
+  title: "When Growth Starts Exploding: Learning What Users Truly Want",
+  description:
+    "Our extension is growing faster than ever. Here’s why understanding user behavior, feature adoption, and real demand is becoming the foundation of our next stage.",
+  date: "2026-05-09",
+  readTime: "5 min read",
+  category: "Growth",
+  author: "LinguaBatch Team",
+  content: `Something is changing.
+
+What started as a focused workflow tool is now evolving at a speed we’ve never experienced before.
+
+Usage is increasing rapidly.
+More users are discovering the extension.
+And certain features are beginning to stand out far more than expected.
+
+## Growth reveals the real product
+
+At the beginning, you build based on assumptions.
+
+You think you know:
+- what users need  
+- which features matter most  
+- how people will use the product  
+
+But real growth changes everything.
+
+Because once users arrive at scale, behavior becomes clearer than opinions.
+
+## Watching what users actually use
+
+Right now, one of our biggest priorities is understanding:
+**which tools inside the extension users rely on the most.**
+
+Not what sounds impressive.
+Not what looks advanced.
+But what people genuinely return to every day.
+
+This matters because true value is measured through usage — not intention.
+
+## The beginning of product-market clarity
+
+Rapid growth creates a unique opportunity:
+it exposes what truly resonates.
+
+Some features naturally become central to workflows.
+Others matter less than expected.
+
+This helps us identify:
+- what should be improved further  
+- what should become faster  
+- what users would actually pay for in the future  
+
+Because monetization only works when real value already exists.
+
+## Scaling with intention
+
+Growth alone isn’t enough.
+
+The real challenge is scaling intelligently.
+
+That means:
+- doubling down on high-impact workflows  
+- removing unnecessary friction  
+- refining the features users care about most  
+
+The goal is not to become bigger randomly.
+The goal is to become more useful.
+
+## Why speed still matters
+
+One thing hasn’t changed:
+we still move fast.
+
+As new usage patterns emerge, we adapt quickly:
+- improving workflows  
+- refining interfaces  
+- optimizing performance  
+- responding to feedback rapidly  
+
+Because in fast-growing products, slow iteration becomes a bottleneck.
+
+## Data over assumptions
+
+The more users interact with the extension, the more visible real behavior becomes.
+
+And that changes how decisions are made.
+
+Instead of guessing, we can now observe:
+- which workflows dominate  
+- where users spend the most time  
+- what creates retention  
+- what creates frustration  
+
+This is where real product evolution begins.
+
+## Building around what matters most
+
+The future of the extension will be shaped by one core principle:
+focus on what creates the highest value for users.
+
+Not complexity.
+Not feature overload.
+But meaningful tools that people genuinely depend on.
+
+## A turning point
+
+This phase feels different.
+
+Not because the product is finished — far from it.
+But because momentum is becoming visible.
+
+The workflows are improving.
+Users are engaging more deeply.
+And the direction is becoming clearer with every iteration.
+
+## The takeaway
+
+Growth is more than numbers.
+
+It’s feedback at scale.
+
+And when you listen carefully, users tell you exactly what the product should become next.
+
+## Experience the evolution yourself
+
+If you want to see how modern translation and workflow tools evolve in real time, now is the perfect moment to explore it.
+
+Try the extension and discover why more users are making it part of their daily workflow.`
+},
+  {
       slug: "2026-04-expanding-pdf-conversion-powerpoint-excel-support",
   title: "From PDF Success to Expansion: Adding PowerPoint and Excel Support",
   description:
